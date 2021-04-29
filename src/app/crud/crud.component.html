@@ -1,0 +1,60 @@
+<div class="container">
+
+  <h1 class="text-center"> Mi tabla </h1>
+
+  <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Email</th>
+        <th>Accion</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let person of people;let i = index"
+     >
+           <td>{{person.name}}</td>
+           <td>{{person.city}}</td>
+           <td>{{person.email}}</td>
+           <td>
+             <button type="button" class="btn btn-danger" (click)="delete(i)">Eliminar</button>
+          </td>
+       </tr>
+    </tbody>
+  </table>
+
+<div class="formulario" >
+  <h1 class="text-center"> Crear Registro </h1>
+
+  <form class="form-inline">
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputName"  [(ngModel)]="Name" name="Name" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">City</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputCity"  [(ngModel)]="City" name="City">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label" >Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail" [(ngModel)]="Email" name="Email">
+      </div>
+    </div>
+  
+    <button type="button" class="btn btn-success" (click)="Add(Name,Email, City)">Agregar</button>
+
+  </form>
+  
+  
+
+
+</div>
+
+
